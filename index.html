@@ -22,21 +22,22 @@
         </div>
         <!--Login-->
         <div class="row justify-content-md-center">
-             <div class="Code col-4">
+            <div class="Code col-4">
+                    <form action="Controlers/Controlers_Login.php" method="POST">
                  <div class="form-group">
                     <label for="code">Code</label> 
-                    <input type="password" class="form-control" id="code" placeholder="Code">
+                    <input type="password" class="form-control" id="code" placeholder="Code" name="code">
                  </div>
                 </div>
                 <div class="Grade col-2"> 
                     <div class="form-group">
                            <label for="grade">Grade</label>
-                           <select class="form-control" id="grade">
-                                <option>Seleccionar</option>
-                                <option>1A</option>
-                                <option>1B</option>
-                                <option>2A</option> 
-                                <option>2B</option>
+                           <select class="form-control" id="grade" name="grade">
+                                <option value="Seleccionar">Seleccionar</option>
+                                <option value="1">1A</option>
+                                <option value="2">1B</option>
+                                <option value="3">2A</option> 
+                                <option value="4">2B</option>
                             </select>
                     </div>
              </div>
@@ -44,7 +45,8 @@
         <!--Bnt-->
         <div class="row justify-content-md-center ">
              <div class="Bnt_Login">
-                 <button class="btn btn-primary">Go Evaluation</button>
+                 <button type="submit" class="btn btn-primary">Go Evaluation</button>
+                </form>
              </div>
         </div>
     </div>
