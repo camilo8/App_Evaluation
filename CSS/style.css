@@ -1,0 +1,27 @@
+/*style basic*/
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image: url('../IMG/fondo.jpg')
+}
+.container{
+    margin-top:200px;
+}                                                      /*STYLE OF INDEX*/
+/*style of  index Logo*/
+.container .row .Logo img{
+    width:100%;
+}
+/*style of  index  label*/
+label{
+    font-family:'Roboto', sans-serif;
+    font-weight: bold;
+    font-size:20px;
+    color: white;
+}
+/*style of  index  Bnt_login*/
+.container .row .Bnt_Login button{
+    background: #0077B3;
+    border: 1px solid #0077B3;
+}
