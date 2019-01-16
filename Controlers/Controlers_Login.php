@@ -11,9 +11,24 @@ if(isset($_POST) && !empty($_POST)){
 }
 /*valid form of user*/
 $var = count($ConsultPerson);
+foreach($ConsultPerson as $Value){
+    $id= $Value['Id'];
+    $name= $Value['Name'];
+    $surname= $Value['Surname'];
+    $codigo= $Value['Codigo'];
+    $rol= $Value['Rol_Id'];
+    $grade=$Value['Grade_Id'];
+}
 if($var === 1){
-     echo "Bienvenido";
+      switch($rol){
+          case 1:
+             echo "Bienvenido Estudiante";
+          break;
+      }
 }else if($var!= 1) {
+    echo"<script>
+        alert('User Do not exist'); 
+    </script>";
     header('Location:../index.html');
 }
 ?>

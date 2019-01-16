@@ -6,7 +6,7 @@
 body{
     background-image: url('../IMG/fondo.jpg')
 }
-.container{
+.container1{
     margin-top:200px;
 }                                                      /*STYLE OF INDEX*/
 /*style of  index Logo*/
@@ -24,4 +24,66 @@ label{
 .container .row .Bnt_Login button{
     background: #0077B3;
     border: 1px solid #0077B3;
+}
+                                                     /*STYLE OF STUDENT*/
+/*style of header*/                                                     
+header{
+    background: #0077B3;
+    box-shadow: 0px 6px 0px rgb(0, 0, 0,0.1);
+}
+header .row .Portada img{
+    width:100%;
+}
+header .row .Title h1{
+     font-family: 'Roboto', sans-serif;
+     font-weight: bold;
+     color: white;
+     margin-left: 90px;
+}
+header .row .Icon span{
+    font-size: 30px;
+    color: white;
+    margin-left: 20px;
+}
+/*style of nav*/
+nav .row .TitleInfo h3{
+    color:white;
+    font-family:'Roboto', sans-serif; 
+    font-weight: bold;
+}
+nav .row .Info{
+    font-family: Arial;
+}
+/*style of user*/
+.user{
+    margin-top: 20px;
+}
+.user .row .InfoUser h3{
+   font-family:'Roboto', sans-serif; 
+   font-weight: bold;
+}
+.user .row .InfoUser h5{
+    font-family:'Roboto', sans-serif;  
+}
+                                             /*STYLE OF SECTION*/
+/*style of table*/
+section{
+    margin-top: 20px;
+}
+section .row .Table table{
+    background: white;
+}
+section .row .Table table label{
+    color: black;
+}
+section .row .Table table h3{
+    font-family: 'Roboto', sans-serif; 
+    font-weight: bold;
+}
+section .row .Table table p{
+    font-family: Arial, Helvetica, sans-serif;
+}
+section .row .Table button{
+    width: 200px;
+    margin-top: 53px;
 }
