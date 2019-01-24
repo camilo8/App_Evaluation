@@ -4,7 +4,8 @@
     padding: 0;
 }
 body{
-    background-image: url('../IMG/fondo.jpg')
+    background-image: url('../IMG/fondo.jpg');
+    background-attachment: fixed;
 }
 .container1{
     margin-top:200px;
@@ -30,6 +31,8 @@ label{
 header{
     background: #0077B3;
     box-shadow: 0px 6px 0px rgb(0, 0, 0,0.1);
+   /* position: fixed;
+    z-index: 1000;*/
 }
 header .row .Portada img{
     width:100%;
@@ -44,6 +47,9 @@ header .row .Icon span{
     font-size: 30px;
     color: white;
     margin-left: 20px;
+}
+header .row .Icon a {
+   text-decoration: none;
 }
 /*style of nav*/
 nav .row .TitleInfo h3{
@@ -65,7 +71,6 @@ nav .row .Info{
 .user .row .InfoUser h5{
     font-family:'Roboto', sans-serif;  
 }
-                                             /*STYLE OF SECTION*/
 /*style of table*/
 section{
     margin-top: 20px;

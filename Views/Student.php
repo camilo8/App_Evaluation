@@ -1,3 +1,15 @@
+<?php 
+namespace Evaluation;
+require_once('../Class/Evaluation.php');
+session_start();
+if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_Surname']) && !empty($_SESSION['u_Surname'])){
+    $name = $_SESSION['u_Name'];
+    $surname=$_SESSION['u_Surname'];
+    $grade = $_SESSION['u_Grade'];
+    
+    $Evaluation1 = new Evaluation();
+       $Criterion = $Evaluation1->ConsultEval($grade);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,8 +35,17 @@
                    <h1>Evaluacion Reflexiva</h1>
               </div>
               <div class="Icon col-2 align-self-center">
-                  <span class="icon-exit"></span>
+                  <?php
+                   /*valid of login*/
+                        echo  "<a href='../index.html'><span class='icon-exit'></span></a>"
+                  ?>
               </div>
+          <?php 
+            }else{
+                header('Location:../index.html');
+            }
+           /* print_r($Criterion);*/
+            ?>
          </div>
     </Header>
     <!--NAV-->
@@ -37,10 +58,11 @@
             <div class="row justify-content-md-center">
                 <div class="Info col-10">
                 <ul class="list-group">
-                    <li class="list-group-item"><span class="icon-file-text"></span>  Cras justo odio</li>
-                    <li class="list-group-item"><span class="icon-keyboard"></span> Dapibus ac facilisis in</li>
-                    <li class="list-group-item"><span class="icon-user"></span> Morbi leo risus</li>
-                    <li class="list-group-item"><span class="icon-airplane"></span> Porta ac consectetur ac</li>
+                    <li class="list-group-item"><span class="icon-file-text"></span> Leea detenidamente cada criterio y elija 
+									en el cuadro de lista opción que mas represente su opinión</li>
+                    <li class="list-group-item"><span class="icon-keyboard"></span> Revisa tus datos</li>
+                    <li class="list-group-item"><span class="icon-user"></span> Antes de enviar la evaluacion asegurese de que hayas llenado el campo <b>STUDENT COMMENTS</li>
+                    <li class="list-group-item"><span class="icon-airplane"></span> Dar click en el boton <b>ENVIAR</b> para terminar el proceso</li>
                 </ul>
             </div>
         </nav>
@@ -49,9 +71,13 @@
                 <div class="InfoUser col-4">
                     <ul class="list-group">
                         <li class="list-group-item"><h3>Welcome Students</h3></li>
-                        <li class="list-group-item"><h5>Name</h5> Juan Camilo</li>
-                        <li class="list-group-item"><h5>Surname</h5> Penagos Yara</li>
-                        <li class="list-group-item"><h5>Grade</h5> 1A</li>
+                        <li class="list-group-item"><h5>Name</h5><?php echo $name; ?></li>
+                        <li class="list-group-item"><h5>Surname</h5><?php echo $surname; ?></li>
+                        <li class="list-group-item"><h5>Grade</h5><?php  switch($grade){
+                            case 1: 
+                                echo"1A";
+                            break;    
+                        } ?></li>
                     </ul>
                  </div>
           </div>
@@ -70,28 +96,35 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <th scope="row">1</th>
-                        <td><h3>Titulo</h3> <p>Lorem Ipsum is simply dummy text of the printing and
-                             typesetting industry. Lorem Ipsum has been the industry's standard dummy 
-                             text ever since the 1500s, when an unknown printer took a galley of type and 
-                             scrambled it to make a type specimen book</p></td>
-                        <td colspan="2"> <select class="form-control" id="grade" name="grade">
-                                <option value="Seleccionar">Seleccionar</option>
-                                <option value="1">Siempre</option>
-                                <option value="2">Casi siempre</option>
-                                <option value="3">Nunca</option> 
-                            </select></td>
-                        <td></td>
+                     <!--   <form action="../Controlers/Controlers_Aswer.php" method="GET">-->
+
+                            <?php 
+                         /*consult of criterion*/
+                         foreach ($Criterion AS $value) {   
+                             ?>
+                        <th scope="row"> <?php echo $value['Id'] ?></th>
+                        <td><h3><?php echo $value['Name'] ?></h3> <p><?php echo $value['Description'] ?></p></td>
+                        <td colspan="2"> <select class="form-control" id="option" name="grade">
+                            <option value="Seleccionar">Seleccionar</option>
+                            <option value="Siempre">Siempre</option>
+                            <option value="Casi siempre">Casi siempre</option>
+                            <option value="Nunca">Nunca</option> 
+                        </select></td>
+                        <td> <input type="color" value="#ffffff" id="color" name="color" disabled></td>
                     </tr>
+                    <?php 
+                          }
+                          ?>
                     <tr>
                         <th colspan="2">
-                        <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Comentario del Estudainte </label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                        </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Student comment</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="comment"></textarea>
+                            </div>
                         </th>
                         <td ></td>
-                        <td ><button class="btn btn-primary">Enviar</button></td>
+                        <td ><button type="submit"class="btn btn-primary" id="btn-students">Enviar</button></td>
+                    </form>
                         <td></td>
                     </tr>
                 </tbody>
@@ -99,5 +132,8 @@
         </div>
         </div>
     </section>
+    <script src="../JS/jquery.js"></script>
+    <script src="../JS/ValidColor.js"></script>
+    <script src="../JS/bootstrap.min.js"></script>
 </body>
 </html>
