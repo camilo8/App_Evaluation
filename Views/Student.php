@@ -96,21 +96,31 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
                 </thead>
                 <tbody>
                     <tr>
-                     <!--   <form action="../Controlers/Controlers_Aswer.php" method="GET">-->
-
+                     <form action="../Controlers/Controlers_Aswer.php" method="GET">
                             <?php 
                          /*consult of criterion*/
+                         $var=1;
+                         $var1=1;
+                         $var2=1;
+                         $var3=1;
+                         $var4=11;
+                         $var5=1;
                          foreach ($Criterion AS $value) {   
                              ?>
-                        <th scope="row"> <?php echo $value['Id'] ?></th>
+                        <th scope="row"> 
+                            <?php echo $value['Id'] ?>
+                            <input type="hidden" value="<?php echo $value['Id'] ?>" name="id">
                         <td><h3><?php echo $value['Name'] ?></h3> <p><?php echo $value['Description'] ?></p></td>
-                        <td colspan="2"> <select class="form-control" id="option" name="grade">
+                        <td colspan="2"> <select class="form-control" id="<?php echo'option'.$var++; ?>" name="<?php echo'grade'.$var1++; ?>">
                             <option value="Seleccionar">Seleccionar</option>
                             <option value="Siempre">Siempre</option>
                             <option value="Casi siempre">Casi siempre</option>
                             <option value="Nunca">Nunca</option> 
                         </select></td>
-                        <td> <input type="color" value="#ffffff" id="color" name="color" disabled></td>
+                        <td>
+                             <input type="color" value="#ffffff" class="color" id="<?php echo'color'.$var2++; ?>" name="<?php echo'color'.$var3++; ?>" disabled>
+                             <input type="hidden" value="#ffffff" id="<?php echo'color'.$var4++; ?>" name="<?php echo'color'.$var5++; ?>" >
+                        </td>
                     </tr>
                     <?php 
                           }

@@ -87,6 +87,10 @@ section .row .Table table h3{
 }
 section .row .Table table p{
     font-family: Arial, Helvetica, sans-serif;
+    color:#212529;;
+}
+section .row .Table .color{
+    height:80px;
 }
 section .row .Table button{
     width: 200px;
