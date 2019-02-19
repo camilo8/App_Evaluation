@@ -11,7 +11,7 @@
         }
         if(opt === "Casi siempre"){
             $("#color1").val("#ffff00");
-            $("#color11").val("#ffff00");
+            $("#color11").val("ffff00");
         }
         if(opt === "Nunca"){
             $("#color1").val("#ff0000");

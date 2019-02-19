@@ -23,6 +23,7 @@ foreach($ConsultPerson as $Value){
 if($var === 1){
       switch($rol){
           case 1:
+          /*student*/
               header('Location:../Views/Student.php');
               $_SESSION['u_Id'] = $id;
               $_SESSION['u_Name'] = $name;

@@ -3,12 +3,16 @@ namespace Evaluation;
 require_once('../Class/Evaluation.php');
 session_start();
 if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_Surname']) && !empty($_SESSION['u_Surname'])){
+    $id = $_SESSION['u_Id'];
     $name = $_SESSION['u_Name'];
     $surname=$_SESSION['u_Surname'];
     $grade = $_SESSION['u_Grade'];
     
     $Evaluation1 = new Evaluation();
+    $Evaluation2 = new Evaluation();
        $Criterion = $Evaluation1->ConsultEval($grade);
+       $TeacherId = $Evaluation2->Teacher($id);
+      
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -96,7 +100,10 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
                 </thead>
                 <tbody>
                     <tr>
+                      -
+                    <!---Form-->
                      <form action="../Controlers/Controlers_Aswer.php" method="GET">
+                        <input type="hidden" value="<?php echo $id; ?>" name="students">
                             <?php 
                          /*consult of criterion*/
                          $var=1;
@@ -105,13 +112,13 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
                          $var3=1;
                          $var4=11;
                          $var5=1;
+
                          foreach ($Criterion AS $value) {   
                              ?>
                         <th scope="row"> 
                             <?php echo $value['Id'] ?>
-                            <input type="hidden" value="<?php echo $value['Id'] ?>" name="id">
                         <td><h3><?php echo $value['Name'] ?></h3> <p><?php echo $value['Description'] ?></p></td>
-                        <td colspan="2"> <select class="form-control" id="<?php echo'option'.$var++; ?>" name="<?php echo'grade'.$var1++; ?>">
+                        <td colspan="2"> <select class="form-control" id="<?php echo'option'.$var++; ?>" name="<?php echo'aswer'.$var1++; ?>">
                             <option value="Seleccionar">Seleccionar</option>
                             <option value="Siempre">Siempre</option>
                             <option value="Casi siempre">Casi siempre</option>
@@ -119,7 +126,7 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
                         </select></td>
                         <td>
                              <input type="color" value="#ffffff" class="color" id="<?php echo'color'.$var2++; ?>" name="<?php echo'color'.$var3++; ?>" disabled>
-                             <input type="hidden" value="#ffffff" id="<?php echo'color'.$var4++; ?>" name="<?php echo'color'.$var5++; ?>" >
+                             <input type="hidden" value="ffffff" id="<?php echo'color'.$var4++; ?>" name="<?php echo'color'.$var5++; ?>" >
                         </td>
                     </tr>
                     <?php 
