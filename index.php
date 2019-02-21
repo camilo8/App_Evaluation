@@ -18,6 +18,19 @@
         <div class="row justify-content-md-center ">
              <div class="Logo col-6">
                   <img src="IMG/logos1.jpg" alt="">
+                  <?php
+     //alert of evaluation
+    if(isset($_GET) && !empty($_GET)){
+         if($_GET['alert']==="true"){
+           echo"<div class='alert alert-success alert-dismissible fade show' role='alert'>
+           <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+           <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+             <span aria-hidden='true'>&times;</span>
+           </button>
+         </div>";
+        }
+    }
+?>
              </div>
         </div>
         <!--Login-->
@@ -50,5 +63,7 @@
              </div>
         </div>
     </div>
+    <script src="JS/jquery.js"></script>
+    <script src="JS/bootstrap.min.js"></script>
 </body>
 </html>   
