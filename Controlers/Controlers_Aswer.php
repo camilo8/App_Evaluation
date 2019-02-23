@@ -1,8 +1,13 @@
 <?php
-namespace Evaluation;
+namespace Evaluations;
 require_once('../Class/Evaluation.php');
 if(isset($_GET) && !empty($_GET)){
-    if(isset($_GET['students']) && !empty($_GET['students'])){
+    if(isset($_GET['students']) && !empty($_GET['students']) && isset($_GET['aswer1']) && !empty($_GET['aswer1']) &&
+    isset($_GET['aswer2']) && !empty($_GET['aswer2']) && isset($_GET['aswer3']) && !empty($_GET['aswer3'])
+    && isset($_GET['aswer4']) && !empty($_GET['aswer4'])&& isset($_GET['aswer6']) && !empty($_GET['aswer6'])
+    && isset($_GET['aswer7']) && !empty($_GET['aswer7'])&& isset($_GET['aswer8']) && !empty($_GET['aswer9'])
+    && isset($_GET['aswer9']) && !empty($_GET['aswer9'])&& isset($_GET['aswer10']) && !empty($_GET['aswer10'])
+    && isset($_GET['aswer1']) && !empty($_GET['aswer1'])){
         $Id= null;
         $Students_Id =  $_GET['students'];
         $Teacher_Id= null;
@@ -46,7 +51,7 @@ if(isset($_GET) && !empty($_GET)){
     
         header('Location:Controlers_Header.php?successfull=YES');
     }else{
-         header('Location:Controlers_Header.php?successfull=NOT');
+         header('Location:../Views/Student.php?successfull=NOT');
     }
 }
 ?>

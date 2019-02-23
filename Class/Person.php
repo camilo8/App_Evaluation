@@ -1,5 +1,5 @@
 <?php 
-namespace Evaluation;
+namespace Evaluations;
 require_once('Conexion.php');
 class Person{
     /*Atributos*/

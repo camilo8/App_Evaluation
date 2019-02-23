@@ -1,5 +1,5 @@
 <?php 
-namespace Evaluation;
+namespace Evaluations;
 require_once('../Class/Person.php');
 if(isset($_POST) && !empty($_POST)){
    if(isset($_POST['code']) &&  !empty($_POST['code']) && isset($_POST['grade']) &&  !empty($_POST['grade'])){
@@ -24,11 +24,19 @@ if($var === 1){
       switch($rol){
           case 1:
           /*student*/
-              header('Location:../Views/Student.php');
-              $_SESSION['u_Id'] = $id;
-              $_SESSION['u_Name'] = $name;
-              $_SESSION['u_Surname'] = $surname;
-              $_SESSION['u_Grade']= $grade;
+                $_SESSION['u_Id'] = $id;
+                $_SESSION['u_Name'] = $name;
+                $_SESSION['u_Surname'] = $surname;
+                $_SESSION['u_Grade']= $grade;
+                header('Location:../Views/Student.php');
+          break;
+          case 2:
+           /*teacher*/
+                $_SESSION['u_Id'] = $id;
+                $_SESSION['u_Name'] = $name;
+                $_SESSION['u_Surname'] = $surname;
+                $_SESSION['u_Grade']= $grade;
+                header('Location:../Views/Teacher.php');
           break;
       }
 }else if($var!= 1) {

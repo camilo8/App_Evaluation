@@ -96,3 +96,7 @@ section .row .Table button{
     width: 200px;
     margin-top: 53px;
 }
+                                          /*STYLE OF TEACHER*/
+section .row .list_students table{
+    background: white;
+}

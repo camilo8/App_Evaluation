@@ -1,5 +1,5 @@
 <?php 
-namespace Evaluation;
+namespace Evaluations;
 require_once('../Class/Evaluation.php');
 session_start();
 if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_Surname']) && !empty($_SESSION['u_Surname'])){
@@ -11,7 +11,7 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
     $Evaluation1 = new Evaluation();
     $Evaluation2 = new Evaluation();
        $Criterion = $Evaluation1->ConsultEval($grade);
-       $TeacherId = $Evaluation2->Teacher($id);
+       $TeacherId = $Evaluation2->Teacher($id);     
       
 ?>
 <!DOCTYPE html>
@@ -41,14 +41,21 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
               <div class="Icon col-2 align-self-center">
                   <?php
                    /*valid of login*/
-                        echo  "<a href='../index.html'><span class='icon-exit'></span></a>"
+                        echo  "<a href='../Controlers/Controlers_Header.php?exit=true'><span class='icon-exit'></span></a>"
                   ?>
               </div>
           <?php 
             }else{
                 header('Location:../index.html');
             }
-           /* print_r($Criterion);*/
+             /*Valid of successfull*/
+             if(isset($_GET['successfull'])){
+                 if($_GET['successfull'] ==="NOT") {
+                     echo "<script>
+                                 alert('Evaluacion sin completar');
+                          </script>";
+                 }
+             }
             ?>
          </div>
     </Header>
@@ -119,7 +126,7 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
                             <?php echo $value['Id'] ?>
                         <td><h3><?php echo $value['Name'] ?></h3> <p><?php echo $value['Description'] ?></p></td>
                         <td colspan="2"> <select class="form-control" id="<?php echo'option'.$var++; ?>" name="<?php echo'aswer'.$var1++; ?>">
-                            <option value="Seleccionar">Seleccionar</option>
+                            <option value="">Seleccionar</option>
                             <option value="Siempre">Siempre</option>
                             <option value="Casi siempre">Casi siempre</option>
                             <option value="Nunca">Nunca</option> 

@@ -1,5 +1,5 @@
 <?php 
-namespace Evaluation;
+namespace Evaluations;
  class Conexion  extends \PDO{
 	private $type = 'mysql';
 	private $host = 'localhost';

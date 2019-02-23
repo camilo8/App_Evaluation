@@ -20,7 +20,7 @@
                   <img src="IMG/logos1.jpg" alt="">
                   <?php
      //alert of evaluation
-    if(isset($_GET) && !empty($_GET)){
+    if(isset($_GET['alert'])){
          if($_GET['alert']==="true"){
            echo"<div class='alert alert-success alert-dismissible fade show' role='alert'>
            <strong>Holy guacamole!</strong> You should check in on some of those fields below.
