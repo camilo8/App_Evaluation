@@ -8,11 +8,8 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
     $name = $_SESSION['u_Name'];
     $surname=$_SESSION['u_Surname'];
     $grade = $_SESSION['u_Grade'];
-
     $List_Students = new Evaluation();
-    $List_Students->ConsultStudents($grade);
-    print_r($List_Students);
-      
+    $ConsultStudents = $List_Students->ConsultStudents($grade);   
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -79,14 +76,16 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
                 </thead>
                 <tbody>
                     <?php
-                        foreach($List_Students as $value){
+                       foreach($ConsultStudents as $value){
                         ?>
                     <tr>
                     <th scope="row"><?php echo$value['Id'];?></th>
                     <td><?php echo$value['Name']."".$value['Surname'];?></td>
-                    <td><?php echo$value['Codigo'];?></td>
-                    <td><?php echo$value['End_Procces_Students'];?></td>
-                    <td>@mdo</td>
+                    <td><?php   echo$value['Codigo'];?></td>
+                    <td><?php echo$value['End_Procces_Student'];?></td>
+                    <td><?php if($value['End_Procces_Student'] === "SI"){
+                                echo"<a href='' class='icon-profile'></a>";      
+                    } ?></td>
                     </tr>
                         <?php
                         } 

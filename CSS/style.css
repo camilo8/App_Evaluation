@@ -99,4 +99,5 @@ section .row .Table button{
                                           /*STYLE OF TEACHER*/
 section .row .list_students table{
     background: white;
+    font-family: Arial, Helvetica, sans-serif;
 }

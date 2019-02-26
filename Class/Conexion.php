@@ -18,6 +18,4 @@ namespace Evaluations;
 		}
 	}
  }
-
-$cone1  = new Conexion();
 ?>

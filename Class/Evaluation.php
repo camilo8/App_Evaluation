@@ -127,18 +127,18 @@ class Evaluation{
         ]);
         return $result;
     }
-    //function of consult students 
+    //function of consult students
     public function ConsultStudents($Grade_Id){
-      $sql="SELECT person.Id , person.Name , person.Surname , person.Codigo,evalution.End_Procces_Student
-      FROM  person  INNER JOIN evalution ON  person.Id = evalution.Student_Id WHERE person.Grade_Id = :Grade_Id";
-      $this->$Grade_Id = $Grade_Id;
-      $query=$this->Cone->prepare($sql);
-     $query->execute([
+        $sql="SELECT person.Id , person.Name , person.Surname , person.Codigo,evalution.End_Procces_Student
+        FROM  person  INNER JOIN evalution ON  person.Id = evalution.Student_Id WHERE Grade_Id = :Grade_Id";
+        $this->Grade_Id = $Grade_Id;
+        $query = $this->Cone->prepare($sql);
+        $query->execute([
           'Grade_Id'=>$this->Grade_Id
       ]);
       $result = $query->fetchALL(\PDO::FETCH_ASSOC);
       return $result;
     }
-  
+   
 }
 ?>

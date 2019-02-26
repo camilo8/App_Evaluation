@@ -43,6 +43,6 @@ if($var === 1){
     echo"<script>
         alert('User Do not exist'); 
     </script>";
-    header('Location:../index.html');
+    header('Location:../index.php');
 }
 ?>

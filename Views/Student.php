@@ -1,6 +1,7 @@
 <?php 
 namespace Evaluations;
 require_once('../Class/Evaluation.php');
+header("Content-Type: text/html;charset=utf-8");
 session_start();
 if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_Surname']) && !empty($_SESSION['u_Surname'])){
     $id = $_SESSION['u_Id'];
@@ -18,6 +19,10 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta charset="ISO-8859-1">
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <!--CSS Bootstrao 4  end icono moon-->
