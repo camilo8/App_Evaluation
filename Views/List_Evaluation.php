@@ -3,11 +3,13 @@ namespace Evaluations;
 require_once('../Class/Evaluation.php');
 header("Content-Type: text/html;charset=utf-8");
 session_start();
-if(isset($_GET['id'])){
-     $Id= $_GET['id'];
+if(isset($_GET['id_student']) && isset($_GET['id_teacher'])){
+    $Id= $_GET['id_student'];
+    $id= $_GET['id_teacher'];
      $Evalation_List1 = new Evaluation();
      $Evalation_List2 = new Evaluation();
      $result1 = $Evalation_List1->ConsultEvaluation($Id);
+      
      
      foreach($result1 AS $value){
          $name = $value['Name'];
@@ -54,7 +56,7 @@ if(isset($_GET['id'])){
               </div>
           <?php 
             }else{
-                header('Location:../index.html');
+                header('Location:../index.php');
             }
              /*Valid of successfull*/
              if(isset($_GET['successfull'])){
@@ -117,8 +119,10 @@ if(isset($_GET['id'])){
                     <tr>
                       -
                     <!---Form-->
-                     <form action="" method="">
-                        <input type="hidden" value="<?php echo $id; ?>" name="students">
+                     <form action="../Controlers/Controlers_Evaluation.php" method="GET">
+                     <!--date of student and teacher-->
+                     <input type="hidden" name="Teacher_Id" value="<?php echo $id;?>">
+                     <input type="hidden" name="Student_Id" value="<?php echo $Id;?>">
                             <?php 
                             $var1=1;
                             $var2=1;
@@ -153,11 +157,11 @@ if(isset($_GET['id'])){
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Teacher comment</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" value="" rows="3" name="comment_teacher" ></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" value="" rows="3" name="commentary_teacher" ></textarea>
                             </div>
                         </th>
                         <td ></td>
-                        <td ><button type="submit"class="btn btn-primary" id="btn_save" name="btn_save">Guardar</button></td>
+                        <td ><button type="submit"class="btn btn-primary" id="btn_save">Guardar</button></td>
                     </form>
                         <td></td>
                     </tr>
