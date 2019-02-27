@@ -139,6 +139,20 @@ class Evaluation{
       $result = $query->fetchALL(\PDO::FETCH_ASSOC);
       return $result;
     }
+    //function of consult evaluation 
+    public function ConsultEvaluation($Student_Id){
+        $sql="SELECT person.Name , person.Surname , Person.Grade_Id , evalution.Criterion1 ,evalution.Criterion2, evalution.Criterion3 ,evalution.Criterion4,
+         evalution.Criterion5 , evalution.Criterion6 ,evalution.Criterion7, evalution.Criterion8 , evalution.Criterion9 , evalution.Criterion10 , evalution.Color1 , 
+         evalution.Color2, evalution.Color3, evalution.Color4, evalution.Color5 ,evalution.Color6,evalution.Color7,evalution.Color8, evalution.Color9,evalution.Color10 , 
+        evalution.Commentary_Student FROM person INNER JOIN evalution ON person.Id =evalution.Student_Id WHERE evalution.Student_Id = :Student_Id";
+        $this->Student_Id = $Student_Id;
+        $query = $this->Cone->prepare($sql);
+        $query->execute([
+            'Student_Id'=>$this->Student_Id
+        ]);
+        $result = $query->fetchALL(\PDO::FETCH_ASSOC);
+        return $result;
+    }
    
 }
 ?>

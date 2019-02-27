@@ -89,7 +89,7 @@ $('#option5').change(function(){
    }
    if(opt === "Siempre"){
        $("#color5").val("#009933");
-       $("#color15").val("#009933");
+       $("#color15").val("009933");
    }
    if(opt === "Casi siempre"){
        $("#color5").val("#ffff00");

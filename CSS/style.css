@@ -101,3 +101,7 @@ section .row .list_students table{
     background: white;
     font-family: Arial, Helvetica, sans-serif;
 }
+                                        /*STYLE OF LIST_EVALUATION*/
+table  #btn_save{
+    margin-top: 122px;
+}

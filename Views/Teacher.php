@@ -84,7 +84,7 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
                     <td><?php   echo$value['Codigo'];?></td>
                     <td><?php echo$value['End_Procces_Student'];?></td>
                     <td><?php if($value['End_Procces_Student'] === "SI"){
-                                echo"<a href='' class='icon-profile'></a>";      
+                                echo"<a href='List_Evaluation.php?id=".$value['Id']."' class='icon-profile'></a>";      
                     } ?></td>
                     </tr>
                         <?php
