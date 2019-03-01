@@ -4,7 +4,7 @@ namespace Evaluations;
 	private $type = 'mysql';
 	private $host = 'localhost';
 	private $dbname  ='eval';
-	private $user =  'pma';
+	private $user =  'root';
 	private $password = '';
 	function __construct(){
 		try{
