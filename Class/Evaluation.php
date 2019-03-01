@@ -141,7 +141,7 @@ class Evaluation{
     }
     //function of consult evaluation 
     public function ConsultEvaluation($Student_Id){
-        $sql="SELECT person.Name , person.Surname , Person.Grade_Id , evalution.Criterion1 ,evalution.Criterion2, evalution.Criterion3 ,evalution.Criterion4,
+        $sql="SELECT person.Id , person.Name , person.Surname , Person.Grade_Id , evalution.Criterion1 ,evalution.Criterion2, evalution.Criterion3 ,evalution.Criterion4,
          evalution.Criterion5 , evalution.Criterion6 ,evalution.Criterion7, evalution.Criterion8 , evalution.Criterion9 , evalution.Criterion10 , evalution.Color1 , 
          evalution.Color2, evalution.Color3, evalution.Color4, evalution.Color5 ,evalution.Color6,evalution.Color7,evalution.Color8, evalution.Color9,evalution.Color10 , 
         evalution.Commentary_Student FROM person INNER JOIN evalution ON person.Id =evalution.Student_Id WHERE evalution.Student_Id = :Student_Id";
@@ -153,6 +153,23 @@ class Evaluation{
         $result = $query->fetchALL(\PDO::FETCH_ASSOC);
         return $result;
     }
-   
+     //set commentary of teacher 
+    public function SetCommentary($Commentary_Teacher , $Student_Id , $Teacher_Id, $End_Procces_Teacher){
+        $cone= new Conexion();
+        $sql="UPDATE evalution SET  Teacher_Id=:Teacher_Id,  Commentary_Teacher= :Commentary_Teacher ,  End_Procces_Teacher=:End_Procces_Teacher WHERE Student_Id = :Student_Id";
+        $this->Commentary_Teacher = $Commentary_Teacher;
+        $this->Student_Id=$Student_Id;
+        $this->Teacher_Id=$Teacher_Id;
+        $this->End_Procces_Teacher = $End_Procces_Teacher;
+        $query=$cone->prepare($sql);
+        $result = $query->execute([
+            'Commentary_Teacher'=>$this->Commentary_Teacher,
+            'Student_Id'=>$this->Student_Id,
+            'Teacher_Id'=>$this->Teacher_Id,
+            'End_Procces_Teacher'=>$this->End_Procces_Teacher
+        ]);
+       // $result = $query->fetchALL(\PDO::FETCH_ASSOC);
+        return $result;
+    }
 }
 ?>

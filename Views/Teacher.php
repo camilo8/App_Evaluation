@@ -5,8 +5,6 @@ session_start();
 if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_Surname']) && !empty($_SESSION['u_Surname'])){
     /*date of teachers */
     $id = $_SESSION['u_Id'];
-    $name = $_SESSION['u_Name'];
-    $surname=$_SESSION['u_Surname'];
     $grade = $_SESSION['u_Grade'];
     $List_Students = new Evaluation();
     $ConsultStudents = $List_Students->ConsultStudents($grade);   
@@ -84,7 +82,7 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
                     <td><?php   echo$value['Codigo'];?></td>
                     <td><?php echo$value['End_Procces_Student'];?></td>
                     <td><?php if($value['End_Procces_Student'] === "SI"){
-                                echo"<a href='List_Evaluation.php?id=".$value['Id']."' class='icon-profile'></a>";      
+                                echo"<a href='List_Evaluation.php?id_student=".$value['Id']."&id_teacher=".$id."' class='icon-profile'></a>";      
                     } ?></td>
                     </tr>
                         <?php
