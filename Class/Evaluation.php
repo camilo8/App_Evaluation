@@ -154,19 +154,13 @@ class Evaluation{
         return $result;
     }
      //set commentary of teacher 
-<<<<<<< HEAD
     public function SetCommentary($Commentary_Teacher , $Student_Id , $Teacher_Id, $End_Procces_Teacher){
         $cone= new Conexion();
-=======
-    public function SetCommentary($Commentary_Teacher ,$Student_Id ,$Teacher_Id,$End_Procces_Teacher){
-        $Cone= new Conexion();
->>>>>>> 4f263ffea38198ecd7aae0da6fde1ef1a4ea1ced
         $sql="UPDATE evalution SET  Teacher_Id=:Teacher_Id,  Commentary_Teacher= :Commentary_Teacher ,  End_Procces_Teacher=:End_Procces_Teacher WHERE Student_Id = :Student_Id";
         $this->Commentary_Teacher = $Commentary_Teacher;
         $this->Student_Id=$Student_Id;
         $this->Teacher_Id=$Teacher_Id;
         $this->End_Procces_Teacher = $End_Procces_Teacher;
-<<<<<<< HEAD
         $query=$cone->prepare($sql);
         $result = $query->execute([
             'Commentary_Teacher'=>$this->Commentary_Teacher,
@@ -176,12 +170,6 @@ class Evaluation{
         ]);
        // $result = $query->fetchALL(\PDO::FETCH_ASSOC);
         return $result;
-=======
-        $query=$Cone->prepare($sql);
-        $result = $query->execute();
-       // $result = $query->fetchALL(\PDO::FETCH_ASSOC);
-       
->>>>>>> 4f263ffea38198ecd7aae0da6fde1ef1a4ea1ced
     }
 }
 ?>
