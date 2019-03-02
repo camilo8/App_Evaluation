@@ -6,6 +6,7 @@ class Person{
     private $Codigo;
     private $Cone;
     public  $Grade_Id;
+    public  $Student_Id;
 
 /*fuction of consul of date user*/
     public function __construct(){
@@ -23,5 +24,16 @@ class Person{
      $result = $query->fetchALL(\PDO::FETCH_ASSOC); 
      return $result;
  }
+
+ public function ConsultProcces($Student_Id){
+    $sql ="SELECT *FROM evalution WHERE Student_Id = :Student_Id AND End_Procces_Student ='SI'";
+    $this->Student_Id = $Student_Id; 
+    $query = $this->Cone->prepare($sql);
+    $query->execute([
+      'Student_Id'=>$this->Student_Id
+    ]);
+    $result = $query->fetchALL(\PDO::FETCH_ASSOC); 
+    return $result;
+}
 }
 ?>

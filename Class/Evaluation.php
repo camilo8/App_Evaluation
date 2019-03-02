@@ -144,7 +144,7 @@ class Evaluation{
         $sql="SELECT person.Id , person.Name , person.Surname , Person.Grade_Id , evalution.Criterion1 ,evalution.Criterion2, evalution.Criterion3 ,evalution.Criterion4,
          evalution.Criterion5 , evalution.Criterion6 ,evalution.Criterion7, evalution.Criterion8 , evalution.Criterion9 , evalution.Criterion10 , evalution.Color1 , 
          evalution.Color2, evalution.Color3, evalution.Color4, evalution.Color5 ,evalution.Color6,evalution.Color7,evalution.Color8, evalution.Color9,evalution.Color10 , 
-        evalution.Commentary_Student FROM person INNER JOIN evalution ON person.Id =evalution.Student_Id WHERE evalution.Student_Id = :Student_Id";
+        evalution.Commentary_Student , evalution.Commentary_Teacher FROM person INNER JOIN evalution ON person.Id =evalution.Student_Id WHERE evalution.Student_Id = :Student_Id";
         $this->Student_Id = $Student_Id;
         $query = $this->Cone->prepare($sql);
         $query->execute([

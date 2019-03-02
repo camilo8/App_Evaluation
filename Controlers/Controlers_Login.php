@@ -6,6 +6,7 @@ if(isset($_POST) && !empty($_POST)){
        $Code = $_POST['code'];
        $Grade = $_POST['grade'];
         $Person1 = new Person();
+        $Person2 = new Person();
        $ConsultPerson = $Person1->SelectUser($Code,$Grade);
    }
 }
@@ -24,11 +25,18 @@ if($var === 1){
       switch($rol){
           case 1:
           /*student*/
-                $_SESSION['u_Id'] = $id;
-                $_SESSION['u_Name'] = $name;
-                $_SESSION['u_Surname'] = $surname;
-                $_SESSION['u_Grade']= $grade;
-                header('Location:../Views/Student.php');
+          /*Consult procces of student*/
+         $ConsultProcces = $Person2->ConsultProcces($id);
+         $var1 = count($ConsultProcces);
+          if($var1 != 1){
+              $_SESSION['u_Id'] = $id;
+              $_SESSION['u_Name'] = $name;
+              $_SESSION['u_Surname'] = $surname;
+              $_SESSION['u_Grade']= $grade;
+             header('Location:../Views/Student.php');
+          }else{
+            header('Location:Controlers_Header.php?procces=false');
+          }
           break;
           case 2:
            /*teacher*/
@@ -43,6 +51,6 @@ if($var === 1){
     echo"<script>
         alert('User Do not exist'); 
     </script>";
-    header('Location:../index.php');
+    header('Location:Controlers_Header.php?error=true');
 }
 ?>

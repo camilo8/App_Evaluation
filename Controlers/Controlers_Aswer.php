@@ -6,8 +6,8 @@ if(isset($_GET) && !empty($_GET)){
     isset($_GET['aswer2']) && !empty($_GET['aswer2']) && isset($_GET['aswer3']) && !empty($_GET['aswer3'])
     && isset($_GET['aswer4']) && !empty($_GET['aswer4'])&& isset($_GET['aswer5']) && !empty($_GET['aswer5'])
     && isset($_GET['aswer6']) && !empty($_GET['aswer6'])&& isset($_GET['aswer7']) && !empty($_GET['aswer7'])
-    && isset($_GET['aswer8']) && !empty($_GET['aswer8'])&& isset($_GET['aswer9']) && !empty($_GET['aswer9'])&&
-    isset($_GET['aswer10']) && !empty($_GET['aswer10'])){
+    && isset($_GET['aswer8']) && !empty($_GET['aswer8'])&& isset($_GET['aswer9']) && !empty($_GET['aswer9'])
+    && isset($_GET['aswer10']) && !empty($_GET['aswer10'])  && isset($_GET['comment']) && !empty($_GET['comment'])){
         $Id= null;
         $Students_Id =  $_GET['students'];
         $Teacher_Id= null;

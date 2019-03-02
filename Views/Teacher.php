@@ -41,7 +41,7 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
               </div>
           <?php 
                    }else{
-                        header('Location:../index.html');
+                    header('Location:../Controlers/Controlers_Header.php?intruder=true');
                     }
              /*Valid of successfull*/
              if(isset($_GET['successfull'])){
@@ -75,14 +75,16 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
                 <tbody>
                     <?php
                        foreach($ConsultStudents as $value){
-                        ?>
+                           ?>
                     <tr>
                     <th scope="row"><?php echo$value['Id'];?></th>
                     <td><?php echo$value['Name']."".$value['Surname'];?></td>
                     <td><?php   echo$value['Codigo'];?></td>
                     <td><?php echo$value['End_Procces_Student'];?></td>
                     <td><?php if($value['End_Procces_Student'] === "SI"){
-                                echo"<a href='List_Evaluation.php?id_student=".$value['Id']."&id_teacher=".$id."' class='icon-profile'></a>";      
+                           $_SESSION['u_Student']= $value['Id'];
+                           $_SESSION['u_Teacher']= $id;
+                                echo"<a href='List_Evaluation.php' class='icon-profile'></a>";      
                     } ?></td>
                     </tr>
                         <?php

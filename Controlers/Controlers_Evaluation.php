@@ -9,7 +9,12 @@ require_once('../Class/Evaluation.php');
          $procces = "SI"; 
          $SetAswer =new Evaluation();
          $result = $SetAswer->SetCommentary($Commentary,$Id_Student,$Id_Teacher,$Id_Student,$procces);
-         echo "Yes";
+         session_start();
+         $_SESSION['u_Student'] = $Id_Student;
+         $_SESSION['u_Teacher'] = $Id_Teacher;
+         header('Location:../Views/List_Evaluation1.php');
+    }else{
+         header('Location:../Views/List_Evaluation.php?comment=false');
     }
 
 ?>

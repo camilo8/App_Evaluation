@@ -16,7 +16,8 @@ session_start();
          $name = $value['Name'];
          $surname = $value['Surname'];
          $grade = $value['Grade_Id'];
-         $commentary = $value['Commentary_Student'];
+         $commentary_student = $value['Commentary_Student'];
+         $commentary_teacher =$value['Commentary_Teacher'];
         }
          $result2= $Evalation_List2->ConsultEval($grade);
         
@@ -123,7 +124,7 @@ session_start();
                     <tr>
                       -
                     <!---Form-->
-                     <form action="../Controlers/Controlers_Evaluation.php" method="GET">
+                     <form action="" method="">
                      <!--date of student and teacher-->
                      <input type="hidden" name="Teacher_Id" value="<?php echo $id;?>">
                      <input type="hidden" name="Student_Id" value="<?php echo $Id;?>">
@@ -157,15 +158,15 @@ session_start();
                         <th colspan="2">
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Student comment</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" value="" rows="3" name="comment" disabled><?php echo $commentary;?></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" value="" rows="3" name="comment" disabled><?php echo $commentary_student;?></textarea>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Teacher comment</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" value="" rows="3" name="commentary_teacher" ></textarea>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" value="" rows="3" name="commentary_teacher"disabled ><?php echo $commentary_teacher;?></textarea>
                             </div>
                         </th>
                         <td ></td>
-                        <td ><button type="submit"class="btn btn-primary" id="btn_save">Guardar</button></td>
+                        <td ><button type="#"class="btn btn-primary" id="btn_save"disabled>Guardar</button></td>
                     </form>
                         <td></td>
                     </tr>

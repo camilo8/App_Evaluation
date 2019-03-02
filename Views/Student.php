@@ -51,14 +51,17 @@ if(isset($_SESSION['u_Id']) && !empty($_SESSION['u_Id']) && isset($_SESSION['u_S
               </div>
           <?php 
             }else{
-                header('Location:../index.html');
+                header('Location:../Controlers/Controlers_Header.php?intruder=true');
             }
              /*Valid of successfull*/
              if(isset($_GET['successfull'])){
                  if($_GET['successfull'] ==="NOT") {
-                     echo "<script>
-                                 alert('Evaluacion sin completar');
-                          </script>";
+                    echo"<div class='alert alert-danger alert-dismissible fade show' role='alert'>
+                    <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+                    <button type='button' class='close' data-dismiss='alert' aria-label='Close'>
+                      <span aria-hidden='true'>&times;</span>
+                    </button>
+                  </div>";
                  }
              }
             ?>
